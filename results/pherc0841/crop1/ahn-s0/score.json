@@ -1,0 +1,139 @@
+{
+ "calibration": {
+  "mode": "labels",
+  "recall": 0.8,
+  "threshold_gray": 76
+ },
+ "pixels": 262144,
+ "maps": [
+  {
+   "name": "real",
+   "kind": "real",
+   "p01": 0.17254901960784313,
+   "p05": 0.1843137254901961,
+   "median": 0.2823529411764706,
+   "p95": 0.807843137254902,
+   "p99": 0.8509803921568627,
+   "robust_range": 0.6235294117647059,
+   "mean": 0.3583898656508502,
+   "exceed_calibration": 0.4566650390625,
+   "exceed_ratio_vs_real": 1.0,
+   "auc": 0.8152422193314872,
+   "average_precision": 0.650405585237058
+  },
+  {
+   "name": "constant",
+   "kind": "blank",
+   "p01": 0.1607843137254902,
+   "p05": 0.1607843137254902,
+   "median": 0.16862745098039217,
+   "p95": 0.17647058823529413,
+   "p99": 0.17647058823529413,
+   "robust_range": 0.01568627450980392,
+   "mean": 0.16836776733398437,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": 0.004547508331183832,
+   "auc": 0.5041881860909171,
+   "average_precision": 0.25102350094582304
+  },
+  {
+   "name": "phase-scramble",
+   "kind": "blank",
+   "p01": 0.18823529411764706,
+   "p05": 0.20784313725490197,
+   "median": 0.2980392156862745,
+   "p95": 0.49019607843137253,
+   "p99": 0.6196078431372549,
+   "robust_range": 0.2823529411764706,
+   "mean": 0.3183150796329274,
+   "exceed_calibration": 0.5170211791992188,
+   "exceed_ratio_vs_real": 1.1321672012830795,
+   "r_vs_real": -0.11620361142808108,
+   "auc": 0.37395678327791565,
+   "average_precision": 0.19318363611221728
+  },
+  {
+   "name": "pixel-shuffle",
+   "kind": "blank",
+   "p01": 0.10196078431372549,
+   "p05": 0.10588235294117647,
+   "median": 0.10980392156862745,
+   "p95": 0.11764705882352941,
+   "p99": 0.12156862745098039,
+   "robust_range": 0.011764705882352941,
+   "mean": 0.11125699211569394,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": 0.01753842543760414,
+   "auc": 0.4884434109118118,
+   "average_precision": 0.24426774455681063
+  },
+  {
+   "name": "block-shuffle",
+   "kind": "diagnostic",
+   "p01": 0.17647058823529413,
+   "p05": 0.19215686274509805,
+   "median": 0.2823529411764706,
+   "p95": 0.7294117647058823,
+   "p99": 0.8431372549019608,
+   "robust_range": 0.5372549019607843,
+   "mean": 0.3413489697026271,
+   "exceed_calibration": 0.46205902099609375,
+   "exceed_ratio_vs_real": 1.011811681368618,
+   "r_vs_real": 0.6363787164335334,
+   "auc": 0.6844312555893024,
+   "average_precision": 0.4929185565187626
+  },
+  {
+   "name": "depth-shuffle",
+   "kind": "diagnostic",
+   "p01": 0.13333333333333333,
+   "p05": 0.1411764705882353,
+   "median": 0.1568627450980392,
+   "p95": 0.19607843137254902,
+   "p99": 0.25098039215686274,
+   "robust_range": 0.054901960784313725,
+   "mean": 0.16076844159294576,
+   "exceed_calibration": 0.00229644775390625,
+   "exceed_ratio_vs_real": 0.005028735632183908,
+   "r_vs_real": -0.030399145219595785,
+   "auc": 0.4503938875144456,
+   "average_precision": 0.222620359957792
+  }
+ ],
+ "null_threshold": {
+  "threshold_gray": 159,
+  "from": "phase-scramble",
+  "quantile": 0.99,
+  "real_fraction_above": 0.14435577392578125,
+  "recall": 0.4263635945900409,
+  "false_positive_rate": 0.05082498526812021,
+  "recall_at_calibration": 0.8061329207958705,
+  "false_positive_rate_at_calibration": 0.3407585394103184
+ },
+ "flags": [
+  "phase-scramble: 51.7% of structure-free input is above the calibration threshold (grey 76); that threshold cannot separate ink from model bias here.",
+  "phase-scramble: output varies by 0.282 (p95-p05) on structure-free input; look for tile seams or invented structure.",
+  "block-shuffle: as much or more area above threshold than the real input (1.01x). Area or mean confidence cannot rank regions here.",
+  "At the null threshold (grey 159) only 43% of labelled ink survives."
+ ],
+ "inputs": {
+  "real": "results/pherc0841/crop1/ahn-s0/maps/real.npy",
+  "nulls": [
+   "block-shuffle",
+   "constant",
+   "depth-shuffle",
+   "phase-scramble",
+   "pixel-shuffle"
+  ],
+  "labels": "data/pherc0841/crop1-labels.npy",
+  "region": [
+   256,
+   768,
+   256,
+   768
+  ],
+  "manifest": "results/pherc0841/crop1/ahn-s0/nulls.json"
+ }
+}

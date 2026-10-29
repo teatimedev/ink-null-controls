@@ -1,0 +1,84 @@
+{
+ "calibration": {
+  "mode": "labels",
+  "recall": 0.8,
+  "threshold_gray": 125
+ },
+ "pixels": 262144,
+ "maps": [
+  {
+   "name": "real",
+   "kind": "real",
+   "p01": 0.1843137254901961,
+   "p05": 0.2,
+   "median": 0.37254901960784315,
+   "p95": 0.8509803921568627,
+   "p99": 0.8666666666666667,
+   "robust_range": 0.6509803921568627,
+   "mean": 0.4522906284706265,
+   "exceed_calibration": 0.3557319641113281,
+   "exceed_ratio_vs_real": 1.0,
+   "auc": 0.8961575882908849,
+   "average_precision": 0.8354066009502119
+  },
+  {
+   "name": "constant",
+   "kind": "blank",
+   "p01": 0.1607843137254902,
+   "p05": 0.16470588235294117,
+   "median": 0.16470588235294117,
+   "p95": 0.16862745098039217,
+   "p99": 0.16862745098039217,
+   "robust_range": 0.003921568627450994,
+   "mean": 0.16486448400160847,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": 0.0026210402206531375,
+   "auc": 0.501891169960533,
+   "average_precision": 0.2943844060397504
+  },
+  {
+   "name": "depth-shuffle",
+   "kind": "diagnostic",
+   "p01": 0.1450980392156863,
+   "p05": 0.14901960784313725,
+   "median": 0.16470588235294117,
+   "p95": 0.20392156862745098,
+   "p99": 0.23137254901960785,
+   "robust_range": 0.054901960784313725,
+   "mean": 0.16974289838005516,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": 0.03180218557457087,
+   "auc": 0.46544798802142856,
+   "average_precision": 0.27209110583338175
+  }
+ ],
+ "null_threshold": {
+  "threshold_gray": 44,
+  "from": "constant",
+  "quantile": 0.99,
+  "real_fraction_above": 0.9989776611328125,
+  "recall": 1.0,
+  "false_positive_rate": 0.9985527829228384,
+  "recall_at_calibration": 0.8003638490026639,
+  "false_positive_rate_at_calibration": 0.17097141746272607
+ },
+ "flags": [],
+ "inputs": {
+  "real": "control-0-ahn-mean-forward.npy",
+  "nulls": [
+   "constant",
+   "depth-shuffle"
+  ],
+  "labels": "crop0-labels.npy",
+  "region": [
+   256,
+   768,
+   256,
+   768
+  ],
+  "manifest": null,
+  "source": "RTX 3090 run, 29 Oct 2026 (TRACE v3B / A-hn seeds / product), maps not redistributed"
+ }
+}

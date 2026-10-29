@@ -1,0 +1,6 @@
+.venv/
+.cache/
+data/
+__pycache__/
+*.egg-info/
+results/**/maps/

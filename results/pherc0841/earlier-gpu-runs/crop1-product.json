@@ -1,0 +1,84 @@
+{
+ "calibration": {
+  "mode": "labels",
+  "recall": 0.8,
+  "threshold_gray": 21
+ },
+ "pixels": 262144,
+ "maps": [
+  {
+   "name": "real",
+   "kind": "real",
+   "p01": 0.03137254901960784,
+   "p05": 0.03529411764705882,
+   "median": 0.06274509803921569,
+   "p95": 0.34901960784313724,
+   "p99": 0.5529411764705883,
+   "robust_range": 0.3137254901960784,
+   "mean": 0.11006976856904871,
+   "exceed_calibration": 0.3743324279785156,
+   "exceed_ratio_vs_real": 1.0,
+   "auc": 0.8410898135625443,
+   "average_precision": 0.7114979200723389
+  },
+  {
+   "name": "constant",
+   "kind": "blank",
+   "p01": 0.03529411764705882,
+   "p05": 0.03529411764705882,
+   "median": 0.03529411764705882,
+   "p95": 0.043137254901960784,
+   "p99": 0.043137254901960784,
+   "robust_range": 0.00784313725490196,
+   "mean": 0.03766802619485294,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": -0.003195448018546595,
+   "auc": 0.5024177188787937,
+   "average_precision": 0.2504615473460272
+  },
+  {
+   "name": "depth-shuffle",
+   "kind": "diagnostic",
+   "p01": 0.023529411764705882,
+   "p05": 0.027450980392156862,
+   "median": 0.03137254901960784,
+   "p95": 0.054901960784313725,
+   "p99": 0.09019607843137255,
+   "robust_range": 0.027450980392156862,
+   "mean": 0.036393049651501225,
+   "exceed_calibration": 0.014434814453125,
+   "exceed_ratio_vs_real": 0.0385614853916783,
+   "r_vs_real": 0.11455269277031424,
+   "auc": 0.5337099156835939,
+   "average_precision": 0.2628732672820959
+  }
+ ],
+ "null_threshold": {
+  "threshold_gray": 12,
+  "from": "constant",
+  "quantile": 0.99,
+  "real_fraction_above": 0.7588119506835938,
+  "recall": 0.9224194709513379,
+  "false_positive_rate": 0.7045445309166277,
+  "recall_at_calibration": 0.8000980287040299,
+  "false_positive_rate_at_calibration": 0.2331192977465304
+ },
+ "flags": [],
+ "inputs": {
+  "real": "control-1-product-forward.npy",
+  "nulls": [
+   "constant",
+   "depth-shuffle"
+  ],
+  "labels": "crop1-labels.npy",
+  "region": [
+   256,
+   768,
+   256,
+   768
+  ],
+  "manifest": null,
+  "source": "RTX 3090 run, 29 Oct 2026 (TRACE v3B / A-hn seeds / product), maps not redistributed"
+ }
+}

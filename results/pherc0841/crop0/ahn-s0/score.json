@@ -1,0 +1,137 @@
+{
+ "calibration": {
+  "mode": "labels",
+  "recall": 0.8,
+  "threshold_gray": 118
+ },
+ "pixels": 262144,
+ "maps": [
+  {
+   "name": "real",
+   "kind": "real",
+   "p01": 0.1803921568627451,
+   "p05": 0.19607843137254902,
+   "median": 0.3333333333333333,
+   "p95": 0.8588235294117647,
+   "p99": 0.8705882352941177,
+   "robust_range": 0.6627450980392157,
+   "mean": 0.4433219460880055,
+   "exceed_calibration": 0.36557769775390625,
+   "exceed_ratio_vs_real": 1.0,
+   "auc": 0.8985563899590991,
+   "average_precision": 0.828049468539879
+  },
+  {
+   "name": "constant",
+   "kind": "blank",
+   "p01": 0.1607843137254902,
+   "p05": 0.1607843137254902,
+   "median": 0.16862745098039217,
+   "p95": 0.17647058823529413,
+   "p99": 0.17647058823529413,
+   "robust_range": 0.01568627450980392,
+   "mean": 0.16836776733398437,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": 0.008707773952728112,
+   "auc": 0.5061096812489395,
+   "average_precision": 0.29649093218424255
+  },
+  {
+   "name": "phase-scramble",
+   "kind": "blank",
+   "p01": 0.1843137254901961,
+   "p05": 0.20392156862745098,
+   "median": 0.28627450980392155,
+   "p95": 0.47058823529411764,
+   "p99": 0.5882352941176471,
+   "robust_range": 0.26666666666666666,
+   "mean": 0.3045464609183517,
+   "exceed_calibration": 0.054866790771484375,
+   "exceed_ratio_vs_real": 0.15008243420915332,
+   "r_vs_real": -0.1406406136708505,
+   "auc": 0.41414697673095985,
+   "average_precision": 0.2453386313465894
+  },
+  {
+   "name": "pixel-shuffle",
+   "kind": "blank",
+   "p01": 0.10196078431372549,
+   "p05": 0.10588235294117647,
+   "median": 0.11372549019607843,
+   "p95": 0.12156862745098039,
+   "p99": 0.12156862745098039,
+   "robust_range": 0.01568627450980392,
+   "mean": 0.11255856682272518,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": 0.01625067654097748,
+   "auc": 0.5073717222783767,
+   "average_precision": 0.2972766745440921
+  },
+  {
+   "name": "block-shuffle",
+   "kind": "diagnostic",
+   "p01": 0.1803921568627451,
+   "p05": 0.20392156862745098,
+   "median": 0.34901960784313724,
+   "p95": 0.8509803921568627,
+   "p99": 0.8666666666666667,
+   "robust_range": 0.6470588235294117,
+   "mean": 0.4367662766400506,
+   "exceed_calibration": 0.3413047790527344,
+   "exceed_ratio_vs_real": 0.9336039401465033,
+   "r_vs_real": 0.712023321227743,
+   "auc": 0.8246761304766308,
+   "average_precision": 0.7053482620117995
+  },
+  {
+   "name": "depth-shuffle",
+   "kind": "diagnostic",
+   "p01": 0.13333333333333333,
+   "p05": 0.1411764705882353,
+   "median": 0.15294117647058825,
+   "p95": 0.1803921568627451,
+   "p99": 0.21176470588235294,
+   "robust_range": 0.0392156862745098,
+   "mean": 0.1560004888796339,
+   "exceed_calibration": 0.0,
+   "exceed_ratio_vs_real": 0.0,
+   "r_vs_real": 0.03140154452838437,
+   "auc": 0.45846343048832255,
+   "average_precision": 0.2716937920162964
+  }
+ ],
+ "null_threshold": {
+  "threshold_gray": 151,
+  "from": "phase-scramble",
+  "quantile": 0.99,
+  "real_fraction_above": 0.291748046875,
+  "recall": 0.7323630693262296,
+  "false_positive_rate": 0.10865468212524908,
+  "recall_at_calibration": 0.8015073744396075,
+  "false_positive_rate_at_calibration": 0.18443377631856056
+ },
+ "flags": [
+  "phase-scramble: 5.5% of structure-free input is above the calibration threshold (grey 118); that threshold cannot separate ink from model bias here.",
+  "phase-scramble: output varies by 0.267 (p95-p05) on structure-free input; look for tile seams or invented structure."
+ ],
+ "inputs": {
+  "real": "results/pherc0841/crop0/ahn-s0/maps/real.npy",
+  "nulls": [
+   "block-shuffle",
+   "constant",
+   "depth-shuffle",
+   "phase-scramble",
+   "pixel-shuffle"
+  ],
+  "labels": "data/pherc0841/crop0-labels.npy",
+  "region": [
+   256,
+   768,
+   256,
+   768
+  ],
+  "manifest": "results/pherc0841/crop0/ahn-s0/nulls.json"
+ }
+}
